@@ -17,3 +17,5 @@ So This guide is basically a practice guide and I will code the Authentication f
 - [ ] Store user credentials in a separate configuration file
 - [ ] Store user credentials in a database
 - [x] completed task
+
+// https://robertheaton.com/2019/08/12/programming-projects-for-advanced-beginners-user-logins/

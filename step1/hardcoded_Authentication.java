@@ -1,4 +1,6 @@
 package step1;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 // To Compile this
@@ -7,8 +9,41 @@ import java.util.Scanner;
 //Step1 is the package name
  class Test {
 
+    HashMap<String,String> userDetails=new HashMap<String,String>();
+    
+
+
+    public  boolean checkValidUser(String username)
+    {
+        if (userDetails.containsKey(username)) {
+            return true;
+        }
+        else
+        {
+            
+            return false;
+        }
+    }
+
+    public boolean checkPassword(String username,String password)
+    {
+       String storedPassword = userDetails.get(username);
+
+       if (storedPassword.equals(password)) {
+           return true;
+           
+       } else {
+           return false;
+       }
+
+
+    }
     public static void main(String args[])
     {
+        Test t1=new Test();
+        t1.userDetails.put("amit", "amit123");
+        t1.userDetails.put("sandy", "sandy123");
+
        Scanner s=new Scanner(System.in);
 
        System.out.println("**** Login ****");
@@ -22,11 +57,25 @@ import java.util.Scanner;
 
         System.out.println("Entered username: " + username+ "  password is: "  + password);
 
-        if (username.equals("sandy") && password.equals("123")) {
-            System.out.println("Hi Successfully Logged in");
+
+       
+
+        boolean isValidUser=t1.checkValidUser(username);
+        boolean isValidPassword=false;
+        if (isValidUser) {
+            isValidPassword=t1.checkPassword(username,password);
+            
         } else {
-            System.out.println("Wrong User Details were Entered");
-            System.exit(0);
+            System.out.println("No Account Exists");
+            
+        }
+
+        if (isValidPassword) {
+
+            System.out.println("**** Logged In **** ");
+            
+        } else {
+            System.out.println("**** invalid user ****");
         }
 
     }
