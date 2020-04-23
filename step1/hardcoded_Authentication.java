@@ -44,8 +44,8 @@ import java.util.Scanner;
         t1.userDetails.put("amit", "amit123");
         t1.userDetails.put("sandy", "sandy123");
 
+        
        Scanner s=new Scanner(System.in);
-
        System.out.println("**** Login ****");
        System.out.println("Enter User Name  ");
 

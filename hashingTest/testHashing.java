@@ -43,7 +43,7 @@ public class testHashing {
     //  String hashedString=   get_SHA_1_SecurePassword("sandy123", salt);
     //     System.out.println(hashedString);
         
-      String originalString="sandy123";
+      String originalString="vikas123";
 
         MessageDigest digest = MessageDigest.getInstance("SHA");
         byte encodedHash[]= digest.digest(originalString.getBytes(StandardCharsets.UTF_8));
@@ -53,7 +53,7 @@ public class testHashing {
         for (int i = 0; i < encodedHash.length; i++) {
             
           String x= Integer.toHexString(0xff & encodedHash[i]);
-
+          
           if (x.length()==1) 
           {
             hashedString.append('0');    
