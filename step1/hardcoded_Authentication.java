@@ -73,6 +73,9 @@ import java.util.Scanner;
         if (isValidPassword) {
 
             System.out.println("**** Logged In **** ");
+            System.out.println("You are eligible for my deepest Darkest Secret  ");
+            System.out.println(" I want atleast Two monitor setup with one mac book bro this is my dream desk ");
+            System.out.println("************************");
             
         } else {
             System.out.println("**** invalid user ****");
