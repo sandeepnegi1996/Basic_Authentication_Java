@@ -11,10 +11,11 @@ So This guide is basically a practice guide and I will code the Authentication f
 
 ### Tracking
 
-- [x] Compare both username and password to hardcoded values
-- [x] Add the ability to handle multiple users
-- [ ] Use hashing to keep our passwords secure
-- [ ] Store user credentials in a separate configuration file
-- [ ] Store user credentials in a database
+- [x] Compare both username and password to hardcoded values  (step1)
+- [x] Add the ability to handle multiple users                (step1)
+- [x] Use hashing to keep our passwords secure                (step2)
+- [ ] Store user credentials in a separate configuration file  (Authentication folder)
+- [ ] Store user credentials in a database                    (using Database folder)
 
 // https://robertheaton.com/2019/08/12/programming-projects-for-advanced-beginners-user-logins/
+
