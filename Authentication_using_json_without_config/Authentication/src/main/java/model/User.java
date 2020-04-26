@@ -3,6 +3,7 @@ public class User {
 
 	private String username;
 	private String password;
+	
 	public String getUsername() {
 		return username;
 	}
@@ -21,6 +22,8 @@ public class User {
 	{
 		return this.getUsername()+"  "+this.getPassword();
 	}
+	
+	//this overrided equals method is called by the contains method somehow and here we can define the way we want to sort our data
 	
 	@Override
 	public boolean equals(Object obj)

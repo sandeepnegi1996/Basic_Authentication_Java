@@ -4,6 +4,10 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+//This class has one function which will take the password in string 
+// hash the password using SHA256 hashing algorithm using standardCharset.UTF_8
+
+
 public class HashedPassword {
 
 	   public static String getSHA256SecuredPassword(String password)throws NoSuchAlgorithmException {
@@ -22,17 +26,13 @@ public class HashedPassword {
 		               hashedString.append(0);
 		           }
 		           hashedString.append(x);
-		           
+		         
 		       }
 
 		    }
 		    catch (Exception exception) {
 		        System.out.println(exception);
-
-
 		    }
-
-
 		    return hashedString.toString();
 
 

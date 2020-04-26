@@ -13,38 +13,26 @@ import passwordHashing.HashedPassword;;
 public class App 
 {
 	
-	   public static boolean checkValidUser(String usernameEntered,String usernameSaved)
-	   {
-	    
-		   if(usernameEntered.equals(usernameSaved))
-		   {
-			   return true;
-		   }
-		   else
-		   {
-			   return false;
-		   }
-	   }
-	
     public static void main( String[] args ) throws JsonMappingException, JsonProcessingException, NoSuchAlgorithmException
     {
 
-    	System.out.println("********* Welcome to my personal Secret Login System ***************");
+    	System.out.println("############# Welcome to my personal Secret Login System  ####################");
     	System.out.println();
     	System.out.println("If you Login Successfully you will get to know some deep secret about you ");
+    	System.out.println();
     	
     	Scanner scan=new Scanner(System.in);
-    	System.out.println("Enter the username  ");
+    	System.out.print("Enter the username :   ");
     	
     	String username=scan.next();
     
-    	System.out.println("Enter the password  ");
+    	System.out.print("Enter the password  :  ");
     	String password=scan.next();
     	String hashedPassword=null;
+    	
     	try {
    
-    		 hashedPassword=HashedPassword.getSHA256SecuredPassword(password);
-    		 
+    		 hashedPassword=HashedPassword.getSHA256SecuredPassword(password);		 
     	}
     	
     	catch (Exception e) {
@@ -58,8 +46,17 @@ public class App
     	
     	
     	//Deseializing the jsonArray into list of user
-    	ObjectMapper objectmapper=new ObjectMapper();
-    	List<User> users= objectmapper.readValue(jsonArray, new TypeReference<List<User>>() {} );
+    	List<User> users = null;
+    	try
+    	{
+    		ObjectMapper objectmapper=new ObjectMapper();
+        	 users= objectmapper.readValue(jsonArray, new TypeReference<List<User>>() {} );
+        
+    	}
+    	catch (Exception e)
+    	{
+    		System.out.println(e);
+    	}
        	
     	
     	//create User object from the username and password and use conains method to find in the list
@@ -68,27 +65,21 @@ public class App
     	user1.setUsername(username);
     	user1.setPassword(hashedPassword);
 
-    	System.out.println("Entered details are ");
-    	System.out.println(user1.getUsername()+"  "+user1.getPassword());
-    	
     	
     	//find user1 in list of users
-    	
-    	
+    	// equals method in User class is overrided and checked that if username and password is equal then only it is equal
+    	// another approach coming to my mind is to create a separate class and implements Comparator class
+    	//compare to method where we can also do the same thing
     	
     	if(users.contains(user1))
     	{
-    		System.out.println("login successfully done");
+    		System.out.println(" #################   login successfully done   #################################");
     	}
     	else
     	{
-    		System.out.println("login failed");
+    		System.out.println("##################      Login Failed   #################################");
     	}
-    	
-    	//if above failed
-    	//check definition of contians
-    	//or override or implement your vary own method like contains
-    	
+    	   	
        	scan.close();
     	
     }
